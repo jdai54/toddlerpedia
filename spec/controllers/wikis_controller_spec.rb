@@ -83,10 +83,6 @@ RSpec.describe WikisController, type: :controller do
       wiki_instance = assigns(:wiki)
 
       expect(wiki_instance.id).to eq my_wiki.id
-      expect(wiki_instance.title).to eq my_wiki.title
-      expect(wiki_instance.body).to eq my_wiki.body
-      my_wiki.private
-      expect(wiki_instance.private).to eq my_wiki.private
     end
   end
 
