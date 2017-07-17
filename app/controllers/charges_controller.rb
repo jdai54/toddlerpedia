@@ -9,13 +9,13 @@ class ChargesController < ApplicationController
 
   def create
     # amount = Amount.default
-    plan = Stripe::Plan.create(
-      :name => "Premium Plan",
-      :id => "premium-monthly",
-      :interval => "month",
-      :currency => "usd",
-      :amount => Amount.default,
-    )
+    # plan = Stripe::Plan.create(
+    #   :name => "Premium Plan",
+    #   :id => "premium-monthly",
+    #   :interval => "month",
+    #   :currency => "usd",
+    #   :amount => Amount.default,
+    # )
     # Creates a Stripe Customer object, for associating with the ChargesController
     customer = Stripe::Customer.create(
       email: current_user,
