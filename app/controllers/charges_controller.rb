@@ -18,8 +18,8 @@ class ChargesController < ApplicationController
     # )
     # Creates a Stripe Customer object, for associating with the ChargesController
     customer = Stripe::Customer.create(
-      email: current_user,
-      card: params[:stripeToken]
+      :email => current_user,
+      :source => params[:stripeToken]
     )
 
     subscription = Stripe::Subscription.create(
@@ -43,6 +43,7 @@ class ChargesController < ApplicationController
       subscription.delete
       current_user.update_attributes(role: 'standard')
       redirect_to edit_user_registration_path
+      flash[:notice] = "Membership level changed to standard. Remember, you can upgrade at anytime."
     end
   #   # Where the real magic happens
   #   charge = Stripe::Charge.create(
