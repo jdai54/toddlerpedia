@@ -29,7 +29,7 @@ class ChargesController < ApplicationController
       description: "Premium Membership - #{current_user.email}",
       currency: 'usd'
     )
-    current_user.update_attributes(role: 'premium')
+    current_user.premium!
     flash[:notice] = "Welcome to premium membership, #{current_user.email}! Start creating private wikis, and enjoy all the other benefits of premium membership today."
     redirect_to wikis_path
 
@@ -49,10 +49,7 @@ class ChargesController < ApplicationController
     end
 
     def delete
-      # customer = Stripe::Customer.retrieve(current_user.stripe_id)
-      # subscription = Stripe::Subscription.retrieve(current_user.stripe_subscription)
-      # subscription.delete
-      current_user.update_attributes(role: 'standard')
+      current_user.standard!
       redirect_to edit_user_registration_path
       flash[:notice] = "Membership level changed to standard. Remember, you can upgrade at anytime."
     end
