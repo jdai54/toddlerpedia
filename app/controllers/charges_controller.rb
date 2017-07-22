@@ -50,6 +50,7 @@ class ChargesController < ApplicationController
 
     def delete
       current_user.standard!
+      current_user.wikis.map{ |wiki| wiki.update_attributes(private: false); wiki.save }
       redirect_to edit_user_registration_path
       flash[:notice] = "Membership level changed to standard. Remember, you can upgrade at anytime."
     end

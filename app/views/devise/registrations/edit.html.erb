@@ -45,7 +45,7 @@
   <%= link_to "Upgrade to Premium", new_charge_path, class:'btn btn-primary', :method => :post %><br>
 <% elsif user_signed_in? && current_user.premium? %>
   <h3>Cancel premium</h3>
-  <%= link_to "Downgrade Account", downgrade_path, data: { confirm: "Are you sure? All Private wikis will be deleted" }, method: :delete, class:'btn btn-danger' %><br>
+  <%= link_to "Downgrade Account", downgrade_path, data: { confirm: "Are you sure? All of your Private wikis will be converted to Public." }, method: :delete, class:'btn btn-danger' %><br>
 <% end %>
 
 <%= link_to "Back", :back %>
