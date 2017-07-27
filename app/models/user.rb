@@ -4,8 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :wikis
-
+  has_many :wikis, through: :collaborators
+  has_many :collaborators, dependent: :destroy
+  
+  before_save { self.email = email.downcase }
   after_initialize { self.role ||= :standard }
 
   enum role: [:standard, :premium, :admin]
