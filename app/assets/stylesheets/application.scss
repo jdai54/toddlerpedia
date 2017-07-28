@@ -23,3 +23,36 @@
 .nav {
   margin-top: 5px;
 }
+
+.styled-font {
+  font-family: "Lora", Arial, Tahoma,sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.wiki-list, p {
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+}
+
+.btn {
+  font-family: "Lora", Arial, Tahoma,sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 17px;
+  margin: 10px 10px 10px 0px;
+}
+
+.btn-collaborator-delete {
+  font-size: 12px;
+  padding: 5px 12px;
+  margin: 0px;
+}
+
+h1 {
+    font-family: "Lora", Arial, Tahoma, sans-serif;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: normal;
+    margin-bottom: 25px;
+}

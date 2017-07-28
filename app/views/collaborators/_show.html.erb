@@ -1,0 +1,13 @@
+<div class="col-sm-6">
+  <% if @wiki.collaborators.count >= 1 && @wiki.user_id == current_user.id && @wiki.user.role == 'premium'|| current_user.role == "admin" %>
+  <h4>Current Collaborators, count: <%= @wiki.collaborators.count %></h4>
+  <ul class="list-of-collaborators">
+    <% @wiki.collaborators.each do |collaborator| %>
+    <li>
+      <%= User.find_by_id(collaborator.user_id).email %>
+      <%= link_to "Delete", [@wiki, collaborator], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to remove this collaborator?'} %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
