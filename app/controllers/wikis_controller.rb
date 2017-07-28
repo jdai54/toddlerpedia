@@ -4,6 +4,7 @@ class WikisController < ApplicationController
   end
 
   def show
+    @user = current_user
     @wiki = Wiki.find(params[:id])
   end
 
@@ -13,6 +14,7 @@ class WikisController < ApplicationController
 
   def create
     @wiki = Wiki.new
+    @wiki.user = current_user
     @wiki.update_attributes(wiki_params)
 
     if @wiki.save

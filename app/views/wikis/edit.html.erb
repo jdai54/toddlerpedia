@@ -12,7 +12,11 @@
       <li>Private wikis can only be seen by you!</li>
     </ul>
   </div>
-    <div class="col-md-8">
-      <%= render partial: 'form', locals: { wiki: @wiki } %>
-    </div>
+  <div class="col-md-8">
+    <%= render partial: 'form', locals: { wiki: @wiki } %>
+    <% if (current_user.admin? || current_user.premium?) && @wiki.private? %>
+      <%= render partial: 'collaborators/form', locals: { wiki: @wiki } %>
+      <%= render partial: 'collaborators/show' %>
+    <% end %>
   </div>
+</div>
