@@ -1,4 +1,10 @@
 class WikisController < ApplicationController
+  before_action :get_wiki, only: [:edit, :update, :destroy]
+
+  def get_wiki
+    @wiki = Wiki.find(params[:id])
+  end
+
   def index
     @wikis = policy_scope(Wiki)
   end
@@ -27,11 +33,9 @@ class WikisController < ApplicationController
   end
 
   def edit
-    @wiki = Wiki.find(params[:id])
   end
 
   def update
-    @wiki = Wiki.find(params[:id])
     @wiki.update_attributes(wiki_params)
 
     if @wiki.save
@@ -44,8 +48,6 @@ class WikisController < ApplicationController
   end
 
   def destroy
-    @wiki = Wiki.find(params[:id])
-
     if @wiki.destroy
       flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
       redirect_to wikis_path
@@ -60,6 +62,4 @@ class WikisController < ApplicationController
   def wiki_params
     params.require(:wiki).permit(:title, :body, :private)
   end
-
-
 end

@@ -16,12 +16,45 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+
+.home {
+  height: 100%;
+  background-color: #ADD8E6;
+}
+
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
 .user-info {
   margin-top: 9px;
 }
 
 .nav {
-  margin-top: 5px;
+  padding-top: 5px;
+  padding-right: 15px;
+  background-color: white;
+  border: none
+}
+
+.price-div {
+  border-right: 1px solid #ddd;
+}
+
+.premium-features {
+  text-align: left;
+  font-size: 16px;
 }
 
 .styled-font {
@@ -55,4 +88,11 @@ h1 {
     line-height: normal;
     letter-spacing: normal;
     margin-bottom: 25px;
+}
+
+h3 {
+  font-family: "Lora", Arial, Tahoma, sans-serif;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: normal;
 }
